@@ -15,7 +15,7 @@ const Card: FC<CardProps> = memo(
 
     return (
       <div className={styles.card}>
-        <div>
+        <div className={styles.square}>
           <img src={thumbnailUrl} alt="course image" />
         </div>
         <footer>

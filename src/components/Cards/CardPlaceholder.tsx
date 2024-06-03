@@ -4,7 +4,7 @@ const CardPlaceholder = () => {
   return (
     <div className={styles.card}>
       <div className={styles.square_container}>
-        <div className={styles.square_skeleton}></div>
+        <div className={styles.square}></div>
         <footer></footer>
       </div>
     </div>

@@ -19,6 +19,7 @@ const useFetchItems = () => {
   const loadItems = useCallback(
     async (page: number = 1) => {
       if (loading) return;
+      if (page === 1 && items.length > 0) return;
       setLoading(true);
 
       try {

@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# SPA проект с React и Webpack/Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Обзор проекта
 
-Currently, two official plugins are available:
+Этот проект представляет собой небольшое одностраничное приложение (SPA), построенное с использованием React и выбранного вами инструмента сборки (Webpack или Vite). Приложение состоит из двух основных страниц, каждая из которых имеет свой собственный маршрут, и обрабатывает навигацию, получение данных и управление состоянием.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Страницы
 
-## Expanding the ESLint configuration
+1. **Страница Dashboard (`/`)**
+2. **Страница Списка Элементов (`/list`)**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Функциональности
 
-- Configure the top-level `parserOptions` property like this:
+- Страница Dashboard включает в себя:
+  - Кнопку для перехода на страницу списка элементов (`/list`).
+  - Список избранных элементов, сохраненных в состоянии приложения.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Страница списка элементов:
+  - Загружает список элементов с API `https://jsonplaceholder.typicode.com/albums/1/photos?_page=1&_limit=10`.
+  - Автоматически подгружает больше элементов при прокрутке вниз.
+  - Отображает каждый элемент с его ID, названием, изображением и кнопкой для добавления/удаления из избранного.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Навигация:
+  - На странице списка элементов есть кнопка "назад" для возврата на Dashboard.
+  - Dashboard обновляется, чтобы отразить текущее состояние избранных элементов после возврата.
+  - Страница списка элементов сохраняет свою позицию прокрутки и состояние загруженных элементов между навигацией.
+
+## Используемые технологии
+
+- **React**: Для создания пользовательского интерфейса.
+- **Webpack/Vite**: Выберите Webpack или Vite в качестве инструмента сборки.
+- **SCSS**: Для оформления стилей компонентов.
+- **TypeScript**: Для безопасности типов и лучшего опыта разработки.
+- **React Router**: Для управления маршрутизацией страниц.
+
+## Начало работы
+
+### Предварительные требования
+
+Убедитесь, что у вас установлен Node.js на вашем компьютере.
+
+### Установка
+
+1. **Клонировать репозиторий:**
+
+   ```bash
+   git clone https://github.com/yourusername/spa-project.git
+   cd spa-project
+

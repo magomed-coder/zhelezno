@@ -44,6 +44,5 @@
 1. **Клонировать репозиторий:**
 
    ```bash
-   git clone https://github.com/yourusername/spa-project.git
-   cd spa-project
+   git clone https://github.com/magomed-coder/zhelezno.git   
 

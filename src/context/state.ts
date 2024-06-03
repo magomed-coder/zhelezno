@@ -5,6 +5,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE";
 export const SET_LIST_STATE = "SET_LIST_STATE";
+export const SET_SCROLL_POSITION = "SET_SCROLL_POSITION";
 
 export const initialState: GlobalState = {
   favorites: [],
@@ -13,6 +14,7 @@ export const initialState: GlobalState = {
     page: 1,
     hasMore: true,
   },
+  scrollPositions: {},
 };
 
 export const GlobalStateContext = createContext<
@@ -68,6 +70,15 @@ export const globalStateReducer = (
         listState: {
           ...state.listState,
           ...action.payload,
+        },
+      };
+
+    case SET_SCROLL_POSITION:
+      return {
+        ...state,
+        scrollPositions: {
+          ...state.scrollPositions,
+          [action.payload.routePath]: action.payload.scrollPosition,
         },
       };
 

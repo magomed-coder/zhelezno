@@ -1,22 +1,45 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Card from "../components/Cards/Card";
 import Grid from "../components/Grid/Grid";
 import LinkButton from "../components/ListButton";
 import CardPlaceholder from "../components/Cards/CardPlaceholder";
 import {
   SET_LIST_STATE,
+  SET_SCROLL_POSITION,
   TOGGLE_FAVORITE,
   useGlobalState,
 } from "../context/state";
 
 import useFetchItems from "../hooks/useFetchItems";
 import useScroll from "../hooks/useInfiniteScroll";
+import { useLocation } from "react-router-dom";
+import useScrollPosition from "../hooks/useScrollPosition";
 
 const List = () => {
+  const { pathname } = useLocation();
+  const scrollY = useScrollPosition();
   const targetRef = useRef<HTMLButtonElement | null>(null);
   const { state, dispatch } = useGlobalState();
   const { loading } = useFetchItems();
-  const { items, hasMore, page } = state.listState;
+  const {
+    listState: { items, hasMore, page },
+    scrollPositions,
+  } = state;
+
+  useEffect(() => {
+    window.scrollTo(0, scrollPositions[pathname]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: SET_SCROLL_POSITION,
+      payload: {
+        routePath: pathname,
+        scrollPosition: +scrollY,
+      },
+    });
+  }, [dispatch, pathname, scrollY]);
 
   const handleLoadMore = useCallback(() => {
     dispatch({
@@ -73,7 +96,6 @@ const List = () => {
           )}
         </Grid>
       </div>
-
       <div className="py-2 text-center">
         {hasMore ? (
           <button onClick={handleLoadMore} disabled={loading} ref={targetRef}>

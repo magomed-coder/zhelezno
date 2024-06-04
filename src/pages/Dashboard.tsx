@@ -1,5 +1,5 @@
 import Favorites from "../components/Favorites";
-import LinkButton from "../components/ListButton";
+import LinkButton from "../components/LinkButton";
 
 const Dashboard = () => {
   return (

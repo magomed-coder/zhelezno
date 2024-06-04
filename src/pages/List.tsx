@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import Card from "../components/Cards/Card";
 import Grid from "../components/Grid/Grid";
-import LinkButton from "../components/ListButton";
+import LinkButton from "../components/LinkButton";
 import CardPlaceholder from "../components/Cards/CardPlaceholder";
 import {
   SET_LIST_STATE,

@@ -1,4 +1,4 @@
-import LinkButton from "../components/ListButton";
+import LinkButton from "../components/LinkButton";
 
 const NotFound = () => {
   return (

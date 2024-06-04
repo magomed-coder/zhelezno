@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { TOGGLE_FAVORITE, useGlobalState } from "../context/state";
-import Card from "./Cards/Card";
+import Card from "./Card";
 import Grid from "./Grid/Grid";
 
 const Favorites = () => {

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
-import Card from "../components/Cards/Card";
+import Card from "../components/Card";
 import Grid from "../components/Grid/Grid";
 import LinkButton from "../components/LinkButton";
-import CardPlaceholder from "../components/Cards/CardPlaceholder";
+import CardPlaceholder from "../components/Card/CardPlaceholder";
 import {
   SET_LIST_STATE,
   SET_SCROLL_POSITION,
